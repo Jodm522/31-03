@@ -96,7 +96,7 @@ class Graph {
         finalArr.push(item);
       }
       return ["a", "b", "c", "f", "g", "d", "e"];
-      //! I don't even fucking know now
+     
     }
     //! starting vertex = our vertex
     //! visited = where we have been
