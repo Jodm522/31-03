@@ -35,12 +35,12 @@ describe('Graph Implementation', () => {
             });
         });
 
-        
+
     });
 
     describe('#addEdges(edge1, edge2)', () => {
-        context('when the graph does not include the edges', () => {
-            it('should add the edges into the graph first', () => {
+        context('when the graph does not include the nodes', () => {
+            it('should add the nodes into the graph first', () => {
                 let graph = new Graph();
                 graph.addEdges('f', 'a')
                 expect(graph.adjList).to.eql({ 'f': ['a'], 'a': ['f'] });
@@ -63,7 +63,7 @@ describe('Graph Implementation', () => {
                 expect(graph.adjList).to.eql({ 'f': ['a', 'b'], 'a': ['f'], 'b': ['f'] });
             });
         });
-        
+
     });
 
     describe('#buildGraph(edgeList)', () => {
@@ -78,7 +78,7 @@ describe('Graph Implementation', () => {
                     ['b', 'e'],
                     ['c', 'f'],
                     ['c', 'g'],
-                    ['f', 'g']]  
+                    ['f', 'g']]
 
                 let graph = new Graph();
 
@@ -91,7 +91,7 @@ describe('Graph Implementation', () => {
                     e: ['b'],
                     f: ['c', 'g']
                 }
-                
+
                 expect(graph.buildGraph(edges)).to.eql(graph1);
             });
         });
@@ -110,6 +110,7 @@ describe('Graph Implementation', () => {
             ['c', 'g'],
             ['f', 'g'],
             ['h']]
+            
         beforeEach(() => {
             graph = new Graph();
             for (let edge of edges) {
@@ -120,6 +121,7 @@ describe('Graph Implementation', () => {
                 }
             }
         })
+
         it('should not be recursive', () => {
             spy.on(graph, 'breadthFirstTraversal')
             graph.breadthFirstTraversal('a');
@@ -199,4 +201,3 @@ describe('Graph Implementation', () => {
         });
     });
 });
-
